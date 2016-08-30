@@ -1,0 +1,6 @@
+#ip to send a connection Request
+ipLobby: "127.0.0.1"
+#port to send a connection Request
+port: 2016
+#Unique serverName to the command join
+serverName: "jeux"

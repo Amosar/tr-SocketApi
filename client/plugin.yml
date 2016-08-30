@@ -1,0 +1,8 @@
+name: socketClientApi
+version: 1.0.0
+description: Manage Client socket
+author: Amosar
+ 
+main: com.trafalcraft.client.Main
+ 
+commands:

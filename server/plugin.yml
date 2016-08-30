@@ -1,0 +1,19 @@
+name: socketServerApi
+version: 1.0.0
+description: Manage Server socket
+author: Amosar
+ 
+database: false
+main: com.trafalcraft.serveur.Main
+ 
+commands:
+  join:
+    description: Allow you to join a minigame
+    aliases: []
+permissions:
+  socketServeurApi.*:
+    children:
+      socketServeurApi.sendRequest: true
+      socketServeurApi.sendRequestForOtherPlayer: true
+  socketServeurApi.sendRequestForOtherPlayer: {default: op}
+  socketServeurApi.sendRequest: {default: op}

@@ -1,0 +1,13 @@
+port: 2016
+Msg
+  default: 
+    prefix: "§9[§3Mini-Games§9]> §2"
+    error: "§9[§4Mini-Games§9]> §c"
+    no_permission: "§4Error §9§l> §r§bYou dont have permission to do that!"
+    command_use: "§9[§4Mini-Games§9]> §r§cCommand use: §6$command"
+  joueur:
+    requestDeny: "§cMinigame is not available for this moment please try later\n§cOr contact an Admin on the forum > trafalcraft.com"
+    requestSend: "Connection request sent please wait"
+    requestSendForOtherPlayer: "Connection request for $player sent please wait!"
+    requestSendByOtherPlayer: "Connection request by $player sent please wait!"
+    playerdontExist: "The player must exist"
