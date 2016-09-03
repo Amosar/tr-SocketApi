@@ -37,13 +37,7 @@ public class Main extends JavaPlugin{
 			plugin.saveDefaultConfig();
 			plugin.reloadConfig();
 			
-			if(plugin.getConfig().getString("serverName") != null){
-				plugin.getConfig().set("ServerName", plugin.getConfig().getString("nomServeur"));
-				plugin.getConfig().set("nomServeur", null);
-				plugin.saveConfig();
-			}
-			
-			serverName = plugin.getConfig().getString("ServerName");
+			serverName = plugin.getConfig().getString("serverName");
 			ip = plugin.getConfig().getString("ipLobby");
 			port = plugin.getConfig().getInt("port");
 			

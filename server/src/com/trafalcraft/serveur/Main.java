@@ -67,6 +67,11 @@ public class Main extends JavaPlugin{
 			 if(args.length == 3){
 				 if(sender instanceof Player){
 					 if(sender.hasPermission("socketServeurApi.sendRequest")){
+						 Serveur server = serveurs.get(args[0]);
+						 if(server == null){
+							 sender.sendMessage(Msg.ERROR+Msg.serverNotOnline.toString());
+							 return false;
+						 }
 						 serveurs.get(args[0]).sendRequest(args[1], args[2], sender.getName(),null);
 						 sender.sendMessage(Msg.Prefix.toString()+Msg.requestSend);
 					 }else{
@@ -79,6 +84,11 @@ public class Main extends JavaPlugin{
 			 }else if(args.length == 4){
 				 if(Bukkit.getPlayer(args[3]) == null){
 					 if(sender.hasPermission("socketServeurApi.sendRequest")){
+						 Serveur server = serveurs.get(args[0]);
+						 if(server == null){
+							 sender.sendMessage(Msg.ERROR+Msg.serverNotOnline.toString());
+							 return false;
+						 }
 						 serveurs.get(args[0]).sendRequest(args[1], args[2], sender.getName(),args[3]);
 						 sender.sendMessage(Msg.Prefix.toString()+Msg.requestSend);
 						 return true;
@@ -88,6 +98,11 @@ public class Main extends JavaPlugin{
 					 }
 				 }
 				 if(sender.hasPermission("socketServeurApi.sendRequestForOtherPlayer")){
+					 Serveur server = serveurs.get(args[0]);
+					 if(server == null){
+						 sender.sendMessage(Msg.ERROR+Msg.serverNotOnline.toString());
+						 return false;
+					 }
 					 serveurs.get(args[0]).sendRequest(args[1], args[2], args[3],null);
 					 sender.sendMessage(Msg.Prefix.toString()+Msg.requestSendForOtherPlayer.toString().replace("$player", args[3]));
 					 Bukkit.getPlayer(args[3]).sendMessage(Msg.Prefix.toString()+Msg.requestSendByOtherPlayer.toString().replace("$player", sender.getName()));
@@ -100,6 +115,11 @@ public class Main extends JavaPlugin{
 					 return true;
 				 }
 				 if(sender.hasPermission("socketServeurApi.sendRequestForOtherPlayer")){
+					 Serveur server = serveurs.get(args[0]);
+					 if(server == null){
+						 sender.sendMessage(Msg.ERROR+Msg.serverNotOnline.toString());
+						 return false;
+					 }
 					 serveurs.get(args[0]).sendRequest(args[1], args[2], args[3],args[4]);
 					 sender.sendMessage(Msg.Prefix.toString()+Msg.requestSendForOtherPlayer.toString().replace("$player", args[3]));
 					 Bukkit.getPlayer(args[3]).sendMessage(Msg.Prefix.toString()+Msg.requestSendByOtherPlayer.toString().replace("$player", sender.getName()));

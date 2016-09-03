@@ -10,6 +10,8 @@ import java.net.SocketException;
 
 import org.bukkit.Bukkit;
 
+import com.trafalcraft.serveur.util.Msg;
+
 public class Accepter_connexion implements Runnable{
 	
 	private ServerSocket socketserver = null;
@@ -69,6 +71,8 @@ public class Accepter_connexion implements Runnable{
 				Main.serveurs.put(id, serveur);
 				Main.getPlugin().getLogger().info(id +" connected");
 				
+				connection = true;
+				
 				while(connection){
 					String test = in.readLine();
 					Main.getPlugin().getLogger().info("info Received: "+test);
@@ -79,7 +83,7 @@ public class Accepter_connexion implements Runnable{
 						if(test.split(":").length == 3){
 							if(Bukkit.getPlayer(test.split(":")[1]) != null){
 								serveur.sendUser(test.split(":")[1],test.split(":")[2]);
-								Bukkit.getPlayer(test.split(":")[1]).sendMessage("§9[§3Mini-jeux§9]> §2Connection request accepted you'll be teleported");
+								Bukkit.getPlayer(test.split(":")[1]).sendMessage(Msg.Prefix+Msg.requestAccept.toString());
 							}
 							//test.split(":")[1] = nom du joueur
 							//test.split(":")[2] = nom du serveur recepteur
@@ -91,7 +95,7 @@ public class Accepter_connexion implements Runnable{
 							if(Bukkit.getPlayer(test.split(":")[1]) != null){
 								Main.getPlugin().getLogger().info(test.split(":")[1]+"deny");
 								serveur.denyUser(test.split(":")[1]);
-								Bukkit.getPlayer(test.split(":")[1]).sendMessage("§9[§4Mini-jeux§9]> §cConnection request refused the party is probably in progress or the server is closed");
+								Bukkit.getPlayer(test.split(":")[1]).sendMessage(Msg.ERROR+Msg.requestDeny.toString());
 							}
 						}
 					}else{

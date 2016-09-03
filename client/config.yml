@@ -1,3 +1,4 @@
+version: 0.1
 #ip to send a connection Request
 ipLobby: "127.0.0.1"
 #port to send a connection Request
